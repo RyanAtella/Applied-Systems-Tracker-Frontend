@@ -1,12 +1,15 @@
 // api/applications.js
 
+// pages/api/applications.js
 export default async function handler(req, res) {
   const apiUrl = "https://applied-systems-tracker-1.onrender.com/applications";
 
   try {
-    let body;
+    let body = req.body;
     if (req.method !== "GET") {
-      body = JSON.parse(req.body || "{}"); // parse JSON from request
+      if (typeof req.body === "string") {
+        body = JSON.parse(req.body); // parse stringified JSON
+      }
     }
 
     const response = await fetch(apiUrl, {
