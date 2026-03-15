@@ -1,4 +1,4 @@
-const API_BASE = "/api"; //FastAPI backend
+const API_BASE = "https://applied-systems-tracker-1.onrender.com"; //FastAPI backend
 
 export async function getApplications() {
     const response = await fetch(`${API_BASE}/applications`);
